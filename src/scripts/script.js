@@ -1,4 +1,5 @@
 var containerOrigin = document.querySelector('#container-origin');
+const btnReiniciar = document.querySelector('#btn-reiniciar');
 
 const clonar = (elemento) => {
 
@@ -45,6 +46,14 @@ const deleteCuadriculas = () => {
     const body = document.querySelector('body');
     body.appendChild(containerOrigin);
 }
+
+btnReiniciar.addEventListener('click' , (e) => {
+    deleteCuadriculas();
+    const res = prompt('¿Cuantas cuadriculas quieres?');
+
+    crearCuadriculas(res);
+    
+})
 
 crearCuadriculas(16);
 
