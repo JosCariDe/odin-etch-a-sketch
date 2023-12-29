@@ -1,9 +1,12 @@
 var containerOrigin = document.querySelector('#container-origin');
 const btnReiniciar = document.querySelector('#btn-reiniciar');
 
-const clonar = (elemento) => {
+const clonar = (elemento, dimension) => {
 
     const divClon = elemento.cloneNode(true);
+
+    divClon.style.width = dimension + 'px';
+    divClon.style.height = dimension + 'px';
 
     divClon.addEventListener('mouseenter',() => {
         divClon.style.backgroundColor = 'red';
@@ -22,13 +25,17 @@ div.addEventListener('click' , () => {
     div.style.backgroundColor = 'red';
 })
 
-
+const calcularDimensiones = (dimensiones) => {
+    return 1000 / dimensiones;
+}
 
 const crearCuadriculas = (dimensiones) => {
 
+    const dimension = calcularDimensiones(dimensiones);
+
     for (let i = 0;  i < dimensiones ; i++ ) {
         for (let j = 0; j < dimensiones; j++) {
-            clonar(div);
+            clonar(div, dimension);
         }
     }
 
